@@ -37,21 +37,21 @@ if($row != NULL) {
     $sql = "SELECT * FROM `event_details` WHERE `TIMESTAMP` = '$today';";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
-    if($st >= $x) {
+    // if($st >= $x) {
       $present = $row['PRESENT']+1;
       $total = $row['TOTAL'];
       $late = $row['LATE'];
       $sql = "UPDATE `event_details` SET `PRESENT` = '$present' WHERE `event_details`.`TIMESTAMP` = '$today';";
       $result = mysqli_query($conn, $sql);
-    }
-    else {
-      // echo "After";
-      $present = $row['PRESENT'];
-      $total = $row['TOTAL'];
-      $late = $row['LATE']+1;
-      $sql = "UPDATE `event_details` SET `LATE` = '$late' WHERE `event_details`.`TIMESTAMP` = '$today';";
-      $result = mysqli_query($conn, $sql);
-    }
+    // }
+    // else {
+    //   // echo "After";
+    //   $present = $row['PRESENT'];
+    //   $total = $row['TOTAL'];
+    //   $late = $row['LATE']+1;
+    //   $sql = "UPDATE `event_details` SET `LATE` = '$late' WHERE `event_details`.`TIMESTAMP` = '$today';";
+    //   $result = mysqli_query($conn, $sql);
+    // }
 
   }
   echo 0;

@@ -590,6 +590,7 @@ if(($flag == 0 && $_SERVER['REQUEST_METHOD'] == 'POST')) {
                                               <option value="pt">PT</option>
                                               <option value="games">Games</option>
                                               <option value="training">Training</option>
+                                              <option value="ipft">IPFT</option>
                                               
       
                                             </select>
@@ -656,7 +657,7 @@ if(($flag == 0 && $_SERVER['REQUEST_METHOD'] == 'POST')) {
                           <br>
                           <div class="container" >
                           <div class="row">
-                            <div class="form-group col-lg-3 col-12">
+                            <div class="form-group col-lg-4 col-12">
                               <h5 style="text-align: center;">Total Member</h5>
                               <br>
                               <div class="row">
@@ -671,7 +672,7 @@ if(($flag == 0 && $_SERVER['REQUEST_METHOD'] == 'POST')) {
                               </div>
                             </div>
   
-                            <div class="form-group col-lg-3 col-12">
+                            <div class="form-group col-lg-4 col-12">
                               <h5 style="text-align: center;">Present</h5>
                               <br>
                               <div class="row">
@@ -686,28 +687,15 @@ if(($flag == 0 && $_SERVER['REQUEST_METHOD'] == 'POST')) {
                               </div>
                               
                             </div>
-                            <div class="form-group col-lg-3 col-12">
-                              <h5 style="text-align: center;">Late</h5>
-                              <br>
-                              <div class="row">
-                                <div class="form-group col-lg-12 col-12">
-                                  <form action="member_list.php" method = "POST">
-                                    <div class="form-group col-lg-12 col-12">
-                                      <input type="text" class="form-control" id="mo" name="mo" placeholder='.$row['LATE']  .' readonly>
-                                    </div>
-                                  </form>
-                                </div>
-                                
-                              </div>
-                            </div>
-                            <div class="form-group col-lg-3 col-12">
+                            
+                            <div class="form-group col-lg-4 col-12">
                               <h5 style="text-align: center;">Absent</h5>
                               <br>
                               <div class="row">
                                 <div class="form-group col-lg-12 col-12">
                                   <form action="member_list.php" method = "POST">
                                     <div class="form-group col-lg-12 col-12">
-                                      <input type="text" class="form-control" id="mo" name="mo" placeholder='.$row['TOTAL']- $row['PRESENT']-$row['LATE'] .' readonly>
+                                      <input type="text" class="form-control" id="mo" name="mo" placeholder='.$row['TOTAL']- $row['PRESENT'] .' readonly>
                                     </div>
                                   </form>
                                 </div>
@@ -756,7 +744,6 @@ if(($flag == 0 && $_SERVER['REQUEST_METHOD'] == 'POST')) {
                           <th>ID</th>
                           <th>Rank</th>
                           <th>Name</th>
-                          <th>Status</th>
                           <th>Time</th>
                           <th>Details</th>
                         </tr>
@@ -766,7 +753,6 @@ if(($flag == 0 && $_SERVER['REQUEST_METHOD'] == 'POST')) {
                           <th>ID</th>
                           <th>Rank</th>
                           <th>Name</th>
-                          <th>Status</th>
                           <th>Time</th>
                           <th>Details</th>
                         </tr>
@@ -793,12 +779,7 @@ if(($flag == 0 && $_SERVER['REQUEST_METHOD'] == 'POST')) {
                           <td>'.$row1['ID'].'</td>
                           <td>'.$row1['RANK'].'</td>
                           <td>'.$row1['NAME'].'</td>
-                          <td>';
-                            if($time <= $_SESSION['startat']) {
-                                  echo "Present";
-                            }
-                            else echo "Late";
-                          echo '</td>
+                          
                           <td>'.$time.'</td>
                           <td>
                           
